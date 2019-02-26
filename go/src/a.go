@@ -5,4 +5,9 @@ import(
 	"os"
 )
 
+func main(){
+
+	a := os.Args[1:]
+	fmt.Println(a)
+}
 
