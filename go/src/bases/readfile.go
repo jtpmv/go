@@ -20,7 +20,7 @@ func main() {
 	defer f.Close()
 
 	// definir la taille du buffer
-	buf := make([]byte, 32*1024)
+	buf := make([]byte, 1024)
 	for {
 		n, err := f.Read(buf)
 		check(err)
