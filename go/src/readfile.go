@@ -15,7 +15,7 @@ func check(e error) {
 
 func main() {
 
-	f, err := os.Open("file.go")
+	f, err := os.Open("file.txt")
 	check(err)
 	defer f.Close()
 
