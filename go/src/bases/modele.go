@@ -2,20 +2,18 @@ package main
 
 import(
 	"fmt"
+	"log"
 )
 
 
 func check(e error){
 	if e != nil {
-		fmt.Println(e)
+		log.Fatal(e)
 	}
 }
 
 
 func main(){
-
-
-
-
+	fmt.Println("modèle rapide !")
 
 }
