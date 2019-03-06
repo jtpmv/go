@@ -1,0 +1,198 @@
+# ----------------------------------------------
+# Hello World
+# ----------------------------------------------
+
+package main
+
+import "fmt"
+
+func main(){
+
+	fmt.Println("Hello World")
+}
+
+
+# ----------------------------------------------
+# Affiche les arguments  
+# ----------------------------------------------
+package main
+
+import (
+	"fmt"
+	"os"
+)
+
+func main(){
+	fmt.Println(strings.Join(os.Args[1:], " "))
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# ----------------------------------------------
+# Creation d'un fichier   
+# ----------------------------------------------
+package main
+
+import(
+	"fmt"
+	"io/ioutil"
+)
+
+func check(e error){
+	if e != nil {
+		fmt.Println(e)
+	}
+}
+
+
+func main(){
+	s1 := []byte("Hello World! \n Create file ;-)\n")
+	
+	f := ioutil.WriteFile("/tmp/fichier.txt", s1, 0644)
+	check(f)
+}
+
+
+
+
+# ----------------------------------------------
+package main
+
+import (
+	"fmt"
+	"os"
+	"log"
+)
+
+func check(e error) {
+	if e != nil {
+		log.Fatal(e)
+	}
+}
+
+func main() {
+
+	f, err := os.Open("file.go")
+	check(err)
+	defer f.Close()
+
+	// definir la taille du buffer
+	buf := make([]byte, 1024)
+	for {
+		n, err := f.Read(buf)
+		check(err)
+		if n > 0 {
+			fmt.Print(string(buf[:n]))
+		}
+	}
+}
+
+
+
+# ----------------------------------------------
+package main
+
+import (
+	"bufio"
+	"fmt"
+	"log"
+	"os"
+)
+
+func check(e error) {
+	if e != nil {
+		log.Fatal(e)
+	}
+}
+
+func main() {
+
+	file, err := os.Open("/tmp/fichier.txt")
+	check(err)
+	defer file.Close()
+
+	scanner := bufio.NewScanner(file)
+	for scanner.Scan(){
+		fmt.Println(scanner.Text())
+		fmt.Println(scanner.Bytes())
+	}
+}
+
+
+# ----------------------------------------------
+package main
+
+import(
+	"fmt"
+	"log"
+	"os"
+	"regexp"
+)
+
+func check(e error){
+	if e != nil {
+		log.Fatal(e)
+	}
+}
+
+func Usage(){
+	fmt.Println("Usage:", os.Args[0], " <params>")
+	os.Exit(1)
+}
+
+func main(){
+
+	// RegExp
+	re := regexp.MustCompile("t[a-zA-Z0-9]")
+
+	if len(os.Args[1:]) == 0 { Usage() }
+
+	for _,a := range os.Args[1:] {
+		fmt.Println(re.MatchString(a))
+	}
+}
+
+
+# ----------------------------------------------
+package main
+
+import(
+	"fmt"
+	"os"
+	"log"
+)
+
+func Usage(){
+	fmt.Println(os.Args[0], " <params>")
+	os.Exit(1)
+}
+
+func check(e error){
+	if e != nil {
+		log.Fatal(e)
+	}
+}
+
+func main(){
+
+	acpt := len(os.Args[1:])
+	args := os.Args[1:]
+
+	if acpt == 0 {
+		Usage()
+	}
+
+	fmt.Println(args)
+}
