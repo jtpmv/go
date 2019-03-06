@@ -23,15 +23,13 @@ func check(e error){
 
 func main(){
 
-	// acpt := len(os.Args[1:])
-	// if acpt == 0 {
-	// 	Usage()
-	// }
+	acpt := len(os.Args[1:])
+	if acpt == 0 {
+		Usage()
+	}
 
 	args := os.Args[1:] 
 	for _, a := range args {
-		fmt.Println("no args", a )
+		if a == "h" { Help() }
 	}
-
-	fmt.Println("modèle rapide avec fontion Usage && Args" )
 }
