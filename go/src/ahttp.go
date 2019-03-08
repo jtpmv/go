@@ -19,7 +19,7 @@ func check(e error) {
 
 func main() {
 
-	if os.Args[1] { usage() }
+	//if os.Args[1] { usage() }
 
 
 	re := regexp.MustCompile("http.*")

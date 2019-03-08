@@ -15,7 +15,7 @@ func check(e error){
 
 func main(){
 
-	rep, err := http.Get("http://example.com")
+	rep, err := http.Get("http://127.0.0.1:8888/titi")
 	check(err)
 	//fmt.Println(rep)
 
