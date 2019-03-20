@@ -23,6 +23,8 @@ func requete(uri, content string){
 	})
 }
 
+
+// serveur web ... 
 func main(){
 
 	fmt.Println("Rendez-vous sur http://127.0.0.1:8888")

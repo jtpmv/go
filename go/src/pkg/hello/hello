@@ -1,0 +1,11 @@
+package hello
+
+import(
+	"fmt"
+)
+
+func Hello(){
+	const H := "Hello World !"
+	fmt.Println(H)
+}
+
