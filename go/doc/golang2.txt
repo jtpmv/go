@@ -1,0 +1,56 @@
+
+--- Struct
+Les structs sont des valeurs 
+... et new(aStructType) retourne un pointeur (sur une valeur zero)
+
+	pp := new(Point)	// allocation idiomatique 
+				// (idiome : propre à une communauté, element de communication,
+				//   langage, dialect, patois ...)
+ 
+
+ 
+
+	
+
+
+
+// En Go, il est possible de déclarer des structures et des fonctions membres de ces structures
+
+type Employe struct {
+        id      int
+        firstname, lastname, email 	string
+}
+
+func (e Employe) getName() string {
+        return e.firstname
+}
+
+
+
+
+
+
+ --- Interface
+Une interface est un ensembble de methodes 
+
+
+type Personne interface {
+        getName() string
+}
+
+
+func foo(p Personne) {
+        fmt.Println(p.getName)
+}
+
+func main(){
+
+        ee := Employe{1, "Johnny", "Durand", "johnny.durand@gmail.com" }
+        foo(ee)
+}
+
+toute structure disposant des mêmes méthodes que l'interface est considérée comme l'implémentant.
+
+
+
+
