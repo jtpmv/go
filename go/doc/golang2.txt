@@ -14,7 +14,8 @@ Les structs sont des valeurs
 
 
 
-// En Go, il est possible de déclarer des structures et des fonctions membres de ces structures
+// En Go, il est possible de déclarer 
+// des structures et des fonctions membres de ces structures
 
 type Employe struct {
         id      int

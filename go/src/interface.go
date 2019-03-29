@@ -3,7 +3,7 @@ package main
 import("fmt")
 
 type Personne interface {
-	getName() string
+	getName()
 }
 
 type Employe struct {
@@ -21,10 +21,8 @@ func foo(p Personne) {
 	fmt.Println(p.getName)
 }
 
-
-
 func main(){
 
-	ee := Employe{1, "Johnny", "Durand", "johnny.durand@gmail.com" }
+	var ee = Employe{1, "Johnny", "Durand", "johnny.durand@gmail.com" }
 	foo(ee)
 }
