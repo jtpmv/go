@@ -1,0 +1,17 @@
+{{ define "index" }} 
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+</head>
+<body>
+  {{ template "headtemp" }} 
+    
+  <ul>
+      {{ range .Content }}
+	<li> {{ . }} </li>
+      {{ end }}
+    </ul>
+</body>
+</html>
+{{ end }} 
