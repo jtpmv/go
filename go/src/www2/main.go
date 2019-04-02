@@ -5,6 +5,8 @@ import (
 	"html/template"
 	"log"
 	"net/http"
+	"regexp"
+	"strings"
 )
 
 func check(e error) {
@@ -25,7 +27,19 @@ func main() {
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 
-		data := Page{"Langages", []string{"Go", "JavaScript", "Python"}}
+		rpath := r.URL.Path
+		datas := strings.Split(rpath, "/")
+		title := ""
+
+		rule1, _ := regexp.MatchString("/favicon.ico", rpath)
+		rule2, _ := regexp.MatchString("/toto", rpath)
+		if !rule1 && !rule2 {
+
+			fmt.Println(datas[2])
+			title = datas[1]
+		}
+
+		data := Page{title, []string{"Go", "JavaScript", "Python"}}
 		tmpl.ExecuteTemplate(w, "index", data)
 	})
 
