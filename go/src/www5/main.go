@@ -1,6 +1,9 @@
 package main
 
-import "log"
+import( 
+	"log"
+	"github.com/boltdb/bolt"
+)
 
 func check(e error) {
 	if e != nil {
@@ -12,7 +15,8 @@ func main() {
 
 	db, err := bolt.Open("dbtest.db", 0775, nil)
 	defer db.Close()
-
 	check(err)
+
+	
 
 }

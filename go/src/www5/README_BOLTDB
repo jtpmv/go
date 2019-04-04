@@ -1,1 +1,4 @@
 BOLTDB - Base de données (nosql) embarquée 
+
+db, err := bolt.Open("dbtest.db", 0775, nil)
+defer db.Close()
